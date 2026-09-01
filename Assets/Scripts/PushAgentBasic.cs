@@ -62,7 +62,7 @@ public class PushAgentBasic : Agent
                 areaBounds.extents.z * m_PushBlockSettings.spawnAreaMarginMultiplier);
 
             randomSpawnPos = ground.transform.position + new Vector3(randomPosX, 0.25f, randomPosZ);
-            if (Physics.CheckBox(randomSpawnPos, new Vector3(1.0f, 0.01f, 1.0f)) == false)
+            if (Physics.CheckBox(randomSpawnPos, new Vector3(1.0f, 0.2f, 1.0f)) == false)
             {
                 foundNewSpawnLocation = true;
             }
@@ -181,8 +181,8 @@ public class PushAgentBasic : Agent
 
     public void SetBlockProperties()
     {
-        var scale = m_ResetParams.GetWithDefault("block_scale", 2);
-        m_BlockRB.transform.localScale = new Vector3(scale, 0.75f, scale);
+        var scale = m_ResetParams.GetWithDefault("block_scale", 1);
+        m_BlockRB.transform.localScale = new Vector3(scale, 0.2f, scale);
         m_BlockRB.linearDamping = m_ResetParams.GetWithDefault("block_drag", 0.5f);
     }
 
